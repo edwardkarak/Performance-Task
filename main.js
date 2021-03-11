@@ -501,19 +501,14 @@ students = [
   }
 ];
 
-function group(array, key)
+function groupByGrade(students)
 {
-    return array.reduce((acc, obj) => {
-      const property = obj[key];
+	return students.reduce((acc, obj) => {
+      const property = obj["grade"];
       acc[property] = acc[property] || [];
       acc[property].push(obj);
       return acc;
     }, {});
-};
-
-function groupByGrade(students)
-{
-    return group(students, "grade");
 }
 
 function findLowestAverages(students)
@@ -542,4 +537,4 @@ function findLowestAverages(students)
 	return min_grades;
 }
 
-document.getElementById("output").innerHTML = JSON.stringify(groupByGrade(students)) + "<hr>" + JSON.stringify(findLowestAverages(students));
+document.getElementById("output").innerHTML = "<strong>Task 1</strong>: <br>" + JSON.stringify(groupByGrade(students)) + "<hr><strong>Task 2</strong>:<br>" + JSON.stringify(findLowestAverages(students));
